@@ -1,55 +1,30 @@
-package linkedlist;
-
-import java.util.Scanner;
+package topic_2_linkedlist_int;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        LinkedList linkedList = new LinkedList(); // Create LinkedList object
+
+	public static void main(String[] args) {
+		
+		LinkedList list = new LinkedList();
+
+        // Adding elements to the list
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        System.out.println("Current Linked List:");
+        list.printList();
         
-        while (true) {
-            System.out.println("\nLinkedList Operations:");
-            System.out.println("1. Boom PAnes");
-            System.out.println("2. Remove Item");
-            System.out.println("3. Display Items");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // To consume the newline character
-            
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter item to add: ");
-                    int value = scanner.nextInt();
-                    linkedList.addNode(value); // Add item to linked list
-                    System.out.println("Item added: " + value);
-                    break;
-
-                case 2:
-                    System.out.print("Enter item to remove: ");
-                    int valueToRemove = scanner.nextInt();
-                    boolean removed = linkedList.removeNode(valueToRemove); // Remove item from linked list
-                    if (removed) {
-                        System.out.println("Item removed: " + valueToRemove);
-                    } else {
-                        System.out.println("Item not found.");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println("Displaying Items:");
-                    linkedList.display(); // Display all items
-                    break;
-
-                case 4:
-                    System.out.println("Exiting...");
-                    scanner.close();
-                    return;
-
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-    }
+        //Delete
+        System.out.println();
+        System.out.println("Deleting 2 from the list...");
+        System.out.println("Current Linked List:");
+        list.deleteByValue(20);
+        list.printList();
+        
+        //Move/Swap Pointer
+        System.out.println();
+        System.out.println("Movingn/Swapping node from index 1 to index 0");
+        list.moveNodePointer(0, 1);
+        list.printList();
+	}
 }
-
